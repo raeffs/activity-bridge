@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Raeffs.ActivityBridge</RootNamespace>
+    <UserSecretsId>a2f06352-3d99-4734-ab5c-ec1e88252bd6</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Raeffs.ActivityBridge.Api\Raeffs.ActivityBridge.Api.csproj" />
+    <ProjectReference Include="..\Raeffs.ActivityBridge.Database\Raeffs.ActivityBridge.Database.csproj" />
+    <ProjectReference Include="..\Raeffs.ActivityBridge.Domain\Raeffs.ActivityBridge.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
