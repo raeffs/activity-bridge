@@ -5,5 +5,5 @@ namespace Raeffs.ActivityBridge;
 
 public interface IDatabaseContext
 {
-    DbSet<Actor> Actors { get; }
+    DbSet<ActorEntity> Actors { get; }
 }

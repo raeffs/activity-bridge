@@ -22,7 +22,7 @@ namespace Raeffs.ActivityBridge.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Raeffs.ActivityBridge.Entities.Actor", b =>
+            modelBuilder.Entity("Raeffs.ActivityBridge.Entities.ActorEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

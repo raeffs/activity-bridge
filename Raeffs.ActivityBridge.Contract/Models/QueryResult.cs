@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Raeffs.ActivityBridge.Models;
 
@@ -21,7 +21,7 @@ public record QueryResult<TModel> : QueryResult
     [MemberNotNullWhen(true, nameof(Error))]
     public bool Failed => !string.IsNullOrWhiteSpace(Error);
 
-    public QueryResult<TMappedModel> Map<TMappedModel>(Func<TModel, TMappedModel> mapper) => Found
+    public QueryResult<TMappedModel> MapTo<TMappedModel>(Func<TModel, TMappedModel> mapper) => Found
         ? new() { Model = mapper(Model) }
         : new() { Error = Error };
 }

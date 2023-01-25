@@ -18,7 +18,8 @@ public class WebfingerController : ControllerBase
         this.sender = sender;
     }
 
-    public async Task<Results<Ok<WebfingerResource>, NotFound, BadRequest<string>>> Get([FromQuery] WebfingerResourceIdentifier resource, CancellationToken cancellationToken)
+    [HttpGet]
+    public async Task<Results<Ok<WebfingerResource>, NotFound, BadRequest<string>>> GetAsync([FromQuery] WebfingerResourceIdentifier resource, CancellationToken cancellationToken)
     {
         var result = await sender.Send(new GetWebfingerResourceQuery(resource), cancellationToken);
         return result.Unwrap();

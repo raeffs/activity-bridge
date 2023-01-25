@@ -17,7 +17,7 @@ internal class DatabaseContext : DbContext, IDatabaseContext, IMigrateContextOnS
         this.configurations = configurations;
     }
 
-    public DbSet<Actor> Actors => Set<Actor>();
+    public DbSet<ActorEntity> Actors => Set<ActorEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

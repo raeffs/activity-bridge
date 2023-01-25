@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="KristofferStrube.ActivityStreams" Version="0.1.0" />
     <PackageReference Include="MediatR.Contracts" Version="1.0.1" />
   </ItemGroup>
 

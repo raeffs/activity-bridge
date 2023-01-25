@@ -11,6 +11,6 @@ public static class ServiceCollectionExtensions
     {
         return services
             .AddMediatR(Assembly.GetExecutingAssembly())
-            .AddTransient<IReferenceBuilder, ReferenceBuilder>();
+            .AddTransient<IActorBuilder, ActorBuilder>();
     }
 }

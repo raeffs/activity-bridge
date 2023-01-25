@@ -12,7 +12,7 @@ using Raeffs.ActivityBridge;
 namespace Raeffs.ActivityBridge.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230121184826_Initial")]
+    [Migration("20230122185709_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace Raeffs.ActivityBridge.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Raeffs.ActivityBridge.Entities.Actor", b =>
+            modelBuilder.Entity("Raeffs.ActivityBridge.Entities.ActorEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

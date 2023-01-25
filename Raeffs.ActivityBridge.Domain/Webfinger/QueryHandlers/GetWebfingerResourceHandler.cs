@@ -10,12 +10,12 @@ namespace Raeffs.ActivityBridge.Webfinger.QueryHandlers;
 internal class GetWebfingerResourceHandler : IRequestHandler<GetWebfingerResourceQuery, QueryResult<WebfingerResource>>
 {
     private readonly IDatabaseContext databaseContext;
-    private readonly IReferenceBuilder referenceBuilder;
+    private readonly IActorBuilder actorBuilder;
 
-    public GetWebfingerResourceHandler(IDatabaseContext databaseContext, IReferenceBuilder referenceBuilder)
+    public GetWebfingerResourceHandler(IDatabaseContext databaseContext, IActorBuilder actorBuilder)
     {
         this.databaseContext = databaseContext;
-        this.referenceBuilder = referenceBuilder;
+        this.actorBuilder = actorBuilder;
     }
 
     public async Task<QueryResult<WebfingerResource>> Handle(GetWebfingerResourceQuery request, CancellationToken cancellationToken)
@@ -23,15 +23,16 @@ internal class GetWebfingerResourceHandler : IRequestHandler<GetWebfingerResourc
         var user = await databaseContext.Actors.FirstOrDefaultAsync(x => x.Name == request.Resource.User, cancellationToken);
         return QueryResult
             .From(user)
-            .Map(user => new WebfingerResource
+            .MapTo(user => new WebfingerResource
             {
                 Subject = request.Resource.ToString(),
                 Links = new List<ResourceLink>
                 {
-                    new() {
+                    new()
+                    {
                         Rel = "self",
                         Type = "application/activity+json",
-                        Href = referenceBuilder.ForActor(user)
+                        Href = actorBuilder.GetId(user)
                     }
                 }
             });
